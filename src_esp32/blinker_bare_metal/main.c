@@ -1,25 +1,21 @@
-#include <stdint.h>
+ #define LED_GPIO 2  
 
-#define GPIO_OUT_REG  (*((volatile uint32_t *)0x3FF44004)) 
-#define GPIO_ENABLE_REG (*((volatile uint32_t *)0x3FF44020)) 
-#define LED_PIN 2  
+ #define DR_REG_GPIO_BASE 0x3FF44000
+ #define GPIO_ENABLE_REG (DR_REG_GPIO_BASE + 0x20)
+ #define GPIO_OUT_REG (DR_REG_GPIO_BASE + 0x04)
 
-void delay(volatile uint32_t time) {
-    while (time--) {
-        for (volatile uint32_t i = 0; i < 1000; i++);
-    }
-}
+ void delay(int cycles) {
+     for (volatile int i = 0; i < cycles; i++);
+ }
 
-int main(void) {
-    GPIO_ENABLE_REG |= (1 << LED_PIN);
+ void app_main(void) {
+     *(volatile unsigned int*)GPIO_ENABLE_REG |= (1 << LED_GPIO);
 
-    while (1) {
-        GPIO_OUT_REG |= (1 << LED_PIN);
-        delay(1000000);
+     while (1) {
+         *(volatile unsigned int*)GPIO_OUT_REG |= (1 << LED_GPIO);
+         delay(1000000);
 
-        GPIO_OUT_REG &= ~(1 << LED_PIN);
-        delay(1000000);
-    }
-
-    return 0;
-}
+         *(volatile unsigned int*)GPIO_OUT_REG &= ~(1 << LED_GPIO);
+         delay(1000000);
+     }
+ }
