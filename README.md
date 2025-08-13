@@ -1,4 +1,4 @@
-# Lab 01: Blinker en Bare-Metal vs HAL/API vs FreeRTOS con STM32CubeIDE y ESP-IDF
+# Lab 01: Blinker en Bare-Metal vs HAL/API vs RTOS con STM32CubeIDE y ESP-IDF
 
 ## Integrantes
 
