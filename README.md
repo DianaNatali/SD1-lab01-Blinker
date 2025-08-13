@@ -8,7 +8,7 @@
 ## Desarrollo
 
 ### Implementación
-<!-- - ¿Cómo se estructuró cada implementación (Bare Metal, HAL, Mbed OS)?
+<!-- - ¿Cómo se estructuró cada implementación (Bare Metal, HAL/API, RTOS)?
 - ¿Qué diferencias notables hay en términos de complejidad y facilidad de uso? -->
 
 ###  Medición de memoria
@@ -18,7 +18,7 @@
 |------------|-----------------------|----------------------|
 | Bare Metal |                       |                      |
 | HAL        |                       |                      |
-| FreeRTOS   |                       |                      |
+| RTOS       |                       |                      |
 
 
 ## Análisis comparativo
